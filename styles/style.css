@@ -1,0 +1,407 @@
+/*color palette*/
+:root {
+  --main-bg-color: white;
+  --gray: #d1d1d1;
+  --green: #0f9f5d;
+  --orange: #ffa31a;
+}
+
+/*body header footer styling*/
+body {
+  font-family: "Roboto", sans-serif;
+  /*remove awful margin from the body*/
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer {
+  height: 16rem;
+  background-color: white;
+  /* width: 100%; */
+  color: var(--gray);
+  background-color: var(--green);
+}
+
+/*remove styling for button and anchor*/
+a,
+a:hover,
+a:focus,
+a:active {
+  /*remove the default link color of the html hyperlink 'a' tag*/
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  /*remove the complete styling of an HTML button*/
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/*redundant classes*/
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.green {
+  color: var(--green);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+/*to be tested and it's supposed to be an fade up animation*/
+.animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+@keyframes animatebottom {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+/*classes*/
+
+/*HEADER*/
+.wrapper {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  color: var(--orange);
+}
+
+.navbar ul li a {
+  margin-left: 1rem;
+}
+
+.navbar {
+  color: var(--gray);
+}
+
+.hollow-btn {
+  border-radius: 10rem;
+  border: 3px solid;
+  border-color: var(--orange);
+  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  color: var(--orange);
+  font-weight: 600;
+}
+
+/*split-section*/
+.split-section-1 {
+  margin-top: 4rem;
+}
+
+.split-section-2 {
+  margin-top: 8rem;
+}
+
+.card-image {
+  height: 45rem;
+  width: auto;
+  border-radius: 2rem;
+}
+
+.content-1 {
+  margin-left: 4rem;
+  width: 26rem;
+}
+
+.content-2 {
+  margin-right: 4rem;
+  width: 26rem;
+}
+
+.catchphrase {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.description {
+  color: var(--gray);
+  margin-top: 2rem;
+}
+
+.get-started {
+  margin-top: 2rem;
+}
+
+.get-started-btn {
+  border-radius: 10rem;
+  padding: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  color: white;
+  background-color: var(--orange);
+  font-weight: 500;
+}
+
+.new-plants-btn {
+  margin-left: 2rem;
+}
+
+.contributor {
+  margin-top: 2rem;
+}
+
+.contributor-logo {
+  width: 10rem;
+  height: auto;
+  /* margin-top: 2rem; */
+}
+
+.small-gallery {
+  margin-top: 2rem;
+}
+
+.small-gallery-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  object-fit: cover;
+  object-position: bottom;
+}
+
+/*display-case*/
+.display-case {
+  height: 100vh;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(-40vw + 35%);
+  margin-right: calc(-40vw + 35%);
+  background-color: var(--green);
+  color: white;
+  margin-top: 4rem;
+}
+
+.display-case h1 {
+  font-size: 4rem;
+}
+
+.display-case h1 span {
+  margin-left: 1rem;
+}
+
+.display-case-list {
+  width: auto;
+}
+
+.display-case-card {
+  width: 22rem;
+  height: 22rem;
+  background-color: white;
+  color: var(--green);
+  justify-content: space-evenly;
+  border-radius: 2rem;
+  transform: translateY(1rem);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.display-case-card-2 {
+  width: 22rem;
+  height: 22rem;
+  background-color: var(--orange);
+  color: white;
+  justify-content: space-evenly;
+  border-radius: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.emoji {
+  border-radius: 4rem;
+  width: 4rem;
+  height: 4rem;
+  background-color: white;
+  font-size: 2rem;
+}
+
+.display-case .display-case-card .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  filter: brightness(0.5);
+}
+
+.display-case .display-case-card-2 .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.display-case .card-description {
+  text-align: center;
+  width: 11rem;
+}
+
+/*gallery*/
+.gallery {
+  margin-top: 8rem;
+}
+
+.top-section-gallery {
+  width: auto;
+  justify-content: space-between;
+}
+
+.gallery-title {
+  font-size: 4rem;
+}
+
+.gallery-title .green {
+  width: auto;
+}
+
+.see-more-btn {
+  color: var(--orange);
+}
+
+.gallery-list {
+  width: auto;
+}
+
+.gallery-card {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  width: 20rem;
+  height: 32rem;
+  border-radius: 2rem;
+  margin: 1rem;
+}
+
+.gallery-image {
+  width: 20rem;
+  height: 20rem;
+  border-top-left-radius: 2rem; /* 4px */
+  border-top-right-radius: 2rem; /* 4px */
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.gallery-card-description {
+  padding: 1rem;
+}
+
+.gallery-card-description .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.plant-name {
+  font-size: 1.5rem;
+}
+
+.price {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.plant-description {
+  text-justify: distribute;
+  color: var(--gray);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.rating {
+  left: 0;
+}
+
+/*card*/
+.card {
+  /*cardimage2.jpeg*/
+  /* background-image: url("https://images.pexels.com/photos/6231990/pexels-photo-6231990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
+  background: no-repeat center/100% url("../images/cardImage2.jpeg");
+  height: 40rem;
+  border-radius: 2rem;
+  color: white;
+  margin-top: 8rem;
+}
+
+.upper-layer {
+  /*make the background darker*/
+  backdrop-filter: brightness(0.5);
+  border-radius: 2rem;
+  height: 40rem;
+  width: 100%;
+}
+
+.card .upper-layer .card-title {
+  font-size: 4rem;
+  font-weight: 600;
+  width: 48rem;
+  text-align: center;
+}
+
+.card .upper-layer .card-description {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-size: 1rem;
+}
+
+/*FOOTER*/
+footer {
+  margin-top: 2rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.socials ul li {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.line {
+  height: 1px;
+  width: 50rem;
+  margin: 1rem;
+  background-color: var(--gray);
+}
+
+/* @media only screen and (min-width: 1112px) {
+} */

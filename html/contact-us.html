@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Plants Online | naturally🍃</title>
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title flex">
+        <h1>naturally</h1>
+        <h1>🍃</h1>
+      </div>
+      <div class="navbar">
+        <ul class="flex">
+          <li>
+            <a><button>Home</button></a>
+          </li>
+          <li>
+            <a><button>About Us</button></a>
+          </li>
+          <li>
+            <a><button>Our Product</button></a>
+          </li>
+          <li>
+            <a><button>Contact Us</button></a>
+          </li>
+        </ul>
+      </div>
+      <button class="hollow-btn">login</button>
+    </header>
+
+    <h1>Buy Plants Online</h1>
+    <p>Fill out the form below to buy plants from our online shop.</p>
+
+    <form method="post" action="process_order.php">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br />
+
+      <label for="address">Shipping Address:</label>
+      <textarea id="address" name="address" required></textarea><br />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required /><br />
+
+      <label for="plant">Select a Plant:</label>
+      <select id="plant" name="plant">
+        <option value="monstera">Monstera</option>
+        <option value="fiddle-leaf">Fiddle Leaf Fig</option>
+        <option value="snake-plant">Snake Plant</option>
+        <option value="peace-lily">Peace Lily</option>
+        <option value="philodendron">Philodendron</option></select
+      ><br />
+
+      <label for="quantity">Quantity:</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        min="1"
+        max="10"
+        required
+      /><br />
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" name="payment">
+        <option value="credit-card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="apple-pay">Apple Pay</option>
+        <option value="google-pay">Google Pay</option></select
+      ><br />
+
+      <input type="submit" value="Place Order" />
+    </form>
+    <footer class="flex-col">
+      <h2 class="title">naturally🍃</h2>
+      <div class="navbar">
+        <ul class="flex">
+          <li>
+            <a><button>About Us</button></a>
+          </li>
+          <li>
+            <a><button>Our Product</button></a>
+          </li>
+          <li>
+            <a><button>Contacts Us</button></a>
+          </li>
+          <li>
+            <a><button>Client Support</button></a>
+          </li>
+        </ul>
+      </div>
+      <div class="socials">
+        <ul class="flex">
+          <li>
+            <a><button>📩</button></a>
+          </li>
+          <li>
+            <a><button>📩</button></a>
+          </li>
+          <li>
+            <a><button>📩</button></a>
+          </li>
+          <li>
+            <a><button>📩</button></a>
+          </li>
+        </ul>
+      </div>
+      <div class="line"></div>
+      <div class="copyright">
+        Copyright © 2021. naturally. All right reserved.
+      </div>
+    </footer>
+  </body>
+</html>

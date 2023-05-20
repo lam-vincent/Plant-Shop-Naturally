@@ -3,8 +3,10 @@
   --main-bg-color: white;
   --light-gray: #d1d1d1;
   --gray: #9ca3af;
+  --light-green: #00d26a;
   --green: #0f9f5d;
   --orange: #ffa31a;
+  --blue: #0099ff;
 }
 
 /*body header footer styling*/
@@ -78,7 +80,7 @@ table {
 }
 
 caption {
-  color: #0099ff;
+  color: var(--blue);
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 2rem;

@@ -51,17 +51,19 @@ function addToBasket() {
 // Function to calculate the total price
 function calculateTotalPrice() {
   const basketItemsContainer = document.getElementById("basket-items");
-  const basketItems = Array.from(basketItemsContainer.children);
+  const basketItems = basketItemsContainer.children;
 
   let totalPrice = 0;
 
-  basketItems.forEach((item) => {
-    const plantName = item.dataset.plantName;
-    const quantity = parseInt(item.dataset.quantity);
-    const plantPrice = getPlantPrice(plantName);
-    const itemPrice = quantity * plantPrice;
-    totalPrice += itemPrice;
-  });
+  if (basketItems.length > 0) {
+    Array.from(basketItems).forEach((item) => {
+      const plantName = item.dataset.plantName;
+      const quantity = parseInt(item.dataset.quantity);
+      const plantPrice = getPlantPrice(plantName);
+      const itemPrice = quantity * plantPrice;
+      totalPrice += itemPrice;
+    });
+  }
 
   const totalPriceElement = document.getElementById("total-price");
   totalPriceElement.textContent = `$${totalPrice}`;
@@ -120,8 +122,8 @@ function updateStock(plantName, quantity) {
   }
 }
 
-// Function to store the basket in localStorage
-function storeBasketInLocalStorage() {
+// Function to store the basket and stock in localStorage
+function storeBasketAndStockInLocalStorage() {
   const basketItemsContainer = document.getElementById("basket-items");
   const basketItems = Array.from(basketItemsContainer.children);
 
@@ -130,17 +132,40 @@ function storeBasketInLocalStorage() {
     quantity: item.dataset.quantity,
   }));
 
-  localStorage.setItem("basket", JSON.stringify(basket));
+  // Get the stock information from the table
+  const table = document.querySelector("#our-products table");
+  const rows = table.querySelectorAll("tbody tr");
+
+  const stock = {};
+
+  for (const row of rows) {
+    const name = row.querySelector("td:first-child").textContent;
+    const stockValue = parseInt(
+      row.querySelector("td:nth-child(3)").textContent
+    );
+    stock[name] = stockValue;
+  }
+
+  const data = {
+    basket,
+    stock,
+  };
+
+  localStorage.setItem("data", JSON.stringify(data));
 }
 
-// Function to retrieve the basket from localStorage
-function retrieveBasketFromLocalStorage() {
+// Function to retrieve the basket and stock from localStorage
+function retrieveBasketAndStockFromLocalStorage() {
+  console.log("hello");
   const basketItemsContainer = document.getElementById("basket-items");
 
-  // Get the basket from localStorage
-  const basket = JSON.parse(localStorage.getItem("basket"));
+  // Get the data from localStorage
+  const data = JSON.parse(localStorage.getItem("data"));
 
-  if (basket) {
+  if (data) {
+    const basket = data.basket;
+    const stock = data.stock;
+
     basket.forEach((item) => {
       const basketItem = document.createElement("div");
       basketItem.className = "basket-item";
@@ -159,10 +184,20 @@ function retrieveBasketFromLocalStorage() {
 
       basketItemsContainer.appendChild(basketItem);
     });
+
+    // Update the stock information in the table
+    const table = document.querySelector("#our-products table");
+    const rows = table.querySelectorAll("tbody tr");
+
+    for (const row of rows) {
+      const name = row.querySelector("td:first-child").textContent;
+      const stockValue = stock[name];
+      row.querySelector("td:nth-child(3)").textContent = stockValue;
+    }
   }
 
   calculateTotalPrice();
 }
 
-// Retrieve the basket from localStorage on page load
-retrieveBasketFromLocalStorage();
+// Retrieve the basket and stock from localStorage on page load
+retrieveBasketAndStockFromLocalStorage();

@@ -8,46 +8,6 @@
   border-radius: 1rem;
 }
 
-form {
-  margin: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-}
-
-label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  border: 1px solid var(--light-gray);
-  border-radius: 4px;
-}
-
-input[type="button"] {
-  width: 100%;
-  border-radius: 10rem;
-  padding: 1rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  color: black;
-  background-color: var(--orange);
-  font-weight: 500;
-  cursor: pointer;
-}
-
-input[type="button"]:hover {
-  background-color: var(--green);
-  color: white;
-}
-
 #contact-us-form .catchphrase {
   font-size: 2rem;
   font-weight: 800;

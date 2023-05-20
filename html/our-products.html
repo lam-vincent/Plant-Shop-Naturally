@@ -9,91 +9,199 @@
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/our-products.css" />
-    <script src="../scripts/our-products.js"></script>
   </head>
   <body class="wrapper">
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
+    <script>
+      const canvas = document.getElementById("our-products");
+      const jsConfetti = new JSConfetti({ canvas });
+    </script>
+    <script src="../scripts/our-products.js"></script>
     <header>
-      <div class="title flex">
-        <h1>naturally</h1>
-        <h1>🍃</h1>
-      </div>
+      <a href="./index.html">
+        <div class="title flex">
+          <h1>naturally</h1>
+          <h1>🍃</h1>
+        </div>
+      </a>
       <div class="navbar">
         <ul class="flex">
           <li>
-            <a href="./index.html"><button>Home</button></a>
+            <a href="./index.html">Home</a>
           </li>
           <li>
-            <a href="./our-products.html"><button>Our Products</button></a>
+            <a href="./our-products.html">Our Products</a>
           </li>
           <li>
-            <a href="./about-us.html"><button>About Us</button></a>
+            <a href="./about-us.html">About Us</a>
           </li>
           <li>
-            <a href="./contact-us.html"><button>Contact Us</button></a>
+            <a href="./contact-us.html">Contact Us</a>
           </li>
         </ul>
       </div>
     </header>
 
-    <table>
-      <caption>
-        Welcome to our Plant Store
-      </caption>
-      <thead>
-        <tr>
-          <th>Plant Name</th>
-          <th>Price</th>
-          <th>Stock</th>
-          <th>Height</th>
-          <th>Water Needs</th>
-          <th>Sunlight</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Succulent</td>
-          <td>$10</td>
-          <td>10</td>
-          <td>2 inches</td>
-          <td>💧</td>
-          <td>☀️☀️</td>
-        </tr>
-        <tr>
-          <td>Fiddle Leaf Fig</td>
-          <td>$50</td>
-          <td>5</td>
-          <td>4 feet</td>
-          <td>💧💧</td>
-          <td>☀️☀️☀️</td>
-        </tr>
-        <tr>
-          <td>Snake Plant</td>
-          <td>$15</td>
-          <td>20</td>
-          <td>2 feet</td>
-          <td>💧</td>
-          <td>☀️</td>
-        </tr>
-        <tr>
-          <td>Monstera</td>
-          <td>$30</td>
-          <td>8</td>
-          <td>3 feet</td>
-          <td>💧💧💧</td>
-          <td>☀️☀️☀️</td>
-        </tr>
-      </tbody>
-    </table>
+    <section id="our-products">
+      <table>
+        <caption>
+          Welcome to our Plant Store
+        </caption>
+        <thead>
+          <tr>
+            <th>Plant Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Height</th>
+            <th>Water Needs</th>
+            <th>Sunlight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Succulent</td>
+            <td>$10</td>
+            <td>10</td>
+            <td>2 inches</td>
+            <td>💧</td>
+            <td>☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Fiddle Leaf Fig</td>
+            <td>$50</td>
+            <td>5</td>
+            <td>4 feet</td>
+            <td>💧💧</td>
+            <td>☀️☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Snake Plant</td>
+            <td>$15</td>
+            <td>20</td>
+            <td>2 feet</td>
+            <td>💧</td>
+            <td>☀️</td>
+          </tr>
+          <tr>
+            <td>Monstera</td>
+            <td>$30</td>
+            <td>8</td>
+            <td>3 feet</td>
+            <td>💧💧💧</td>
+            <td>☀️☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Peace Lily</td>
+            <td>$25</td>
+            <td>15</td>
+            <td>1.5 feet</td>
+            <td>💧💧</td>
+            <td>☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Spider Plant</td>
+            <td>$12</td>
+            <td>10</td>
+            <td>1 foot</td>
+            <td>💧💧💧</td>
+            <td>☀️☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Aloe Vera</td>
+            <td>$18</td>
+            <td>7</td>
+            <td>1.5 feet</td>
+            <td>💧</td>
+            <td>☀️☀️</td>
+          </tr>
+          <tr>
+            <td>Pothos</td>
+            <td>$20</td>
+            <td>12</td>
+            <td>2 feet</td>
+            <td>💧💧</td>
+            <td>☀️</td>
+          </tr>
+          <tr>
+            <td>Rubber Tree</td>
+            <td>$60</td>
+            <td>5</td>
+            <td>3 feet</td>
+            <td>💧💧💧</td>
+            <td>☀️</td>
+          </tr>
+          <tr>
+            <td>English Ivy</td>
+            <td>$13</td>
+            <td>10</td>
+            <td>2.5 feet</td>
+            <td>💧💧</td>
+            <td>☀️☀️</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <form>
-      <label for="plant-name">Plant Name:</label>
-      <input type="text" id="plant-name" name="plant-name" /><br /><br />
-      <label for="quantity">Quantity:</label>
-      <input type="number" id="quantity" name="quantity" /><br /><br />
-      <label for="delivery-date">Delivery Date:</label>
-      <input type="date" id="delivery-date" name="delivery-date" /><br /><br />
-      <input type="submit" value="Buy" />
-    </form>
+      <form>
+        <h1 class="catchphrase">Choose which plants you want to buy🪴</h1>
+        <label for="plant-name">Plant Name:</label>
+        <select id="plant-name" name="plant-name">
+          <option value="Succulent" selected>Succulent</option>
+          <option value="Fiddle Leaf Fig">Fiddle Leaf Fig</option>
+          <option value="Snake Plant">Snake Plant</option>
+          <option value="Monstera">Monstera</option>
+          <option value="Peace Lily">Peace Lily</option>
+          <option value="Spider Plant">Spider Plant</option>
+          <option value="Aloe Vera">Aloe Vera</option>
+          <option value="Pothos">Pothos</option>
+          <option value="Rubber Tree">Rubber Tree</option>
+          <option value="English Ivy">English Ivy</option></select
+        ><br />
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="10" /><br />
+
+        <input type="button" value="ADD TO BASKET" onclick="addToBasket()" />
+      </form>
+
+      <div class="basket">
+        <h2 class="basket-heading">Your Basket</h2>
+        <div id="basket-items"></div>
+        <div class="basket-total">
+          Total Price: <span id="total-price">$0</span>
+        </div>
+      </div>
+
+      <form>
+        <h1 class="catchphrase">Finalize the Order🪴</h1>
+
+        <label for="delivery-date">Delivery Date:</label>
+        <input
+          type="date"
+          id="delivery-date"
+          name="delivery-date"
+          value="2023-05-20"
+        /><br />
+        <fieldset>
+          <legend>Free delivery between the following times:</legend>
+          <input
+            type="radio"
+            id="morning"
+            name="delivery-time"
+            value="morning"
+            checked
+          />
+          <label for="morning"> Morning between 8am and 12am</label>
+          <input
+            type="radio"
+            id="afternoon"
+            name="delivery-time"
+            value="afternoon"
+          />
+          <label for="afternoon"> Afternoon between 2pm and 6pm</label>
+        </fieldset>
+
+        <input type="button" value="FINISH THE ORDER" onclick="sendOrder()" />
+      </form>
+    </section>
 
     <footer class="flex-col">
       <h2 class="title">naturally🍃</h2>

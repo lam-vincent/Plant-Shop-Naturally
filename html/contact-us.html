@@ -4,11 +4,43 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buy Plants Online | naturally🍃</title>
+
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/contact-us.css" />
+
+    <title>Contact Us | naturally🍃</title>
+    <script>
+      function sendEmail() {
+        var name = document.getElementById("name").value;
+        var subjectInBody = document.getElementById("subjectInBody").value;
+        var message = document.getElementById("message").value;
+
+        // The content of the mail is written here
+        var subject = "Client Support Ticket from " + name;
+        var body =
+          "From: " +
+          name +
+          "\nSubject: " +
+          subjectInBody +
+          "\n\nMessage:\n" +
+          message +
+          "\n\n";
+
+        // the mailto URL
+        var mailtoLink =
+          "mailto:naturally.client.supp@gmail.com" +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(body);
+
+        // to open the mail client
+        window.location.href = mailtoLink;
+      }
+    </script>
   </head>
-  <body>
+  <body class="wrapper">
     <header>
       <div class="title flex">
         <h1>naturally</h1>
@@ -32,51 +64,36 @@
       </div>
     </header>
 
-    <h1>Buy Plants Online</h1>
-    <p>Fill out the form below to buy plants from our online shop.</p>
+    <section id="contact-us-form">
+      <h1 class="catchphrase">Contact Us</h1>
 
-    <form method="post" action="process_order.php">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required /><br />
+      <div class="catchphrase">
+        <span>We'd</span>
+        <span class="green">love</span>
+        <span>to hear</span>
+        <span class="green">from you!</span>
+        <span>🫵</span>
+      </div>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required /><br />
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
 
-      <label for="address">Shipping Address:</label>
-      <textarea id="address" name="address" required></textarea><br />
+        <label for="subjectInBody">Subject:</label>
+        <input
+          type="text"
+          id="subjectInBody"
+          name="subjectInBody"
+          required
+        /><br />
 
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required /><br />
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea
+        ><br />
 
-      <label for="plant">Select a Plant:</label>
-      <select id="plant" name="plant">
-        <option value="monstera">Monstera</option>
-        <option value="fiddle-leaf">Fiddle Leaf Fig</option>
-        <option value="snake-plant">Snake Plant</option>
-        <option value="peace-lily">Peace Lily</option>
-        <option value="philodendron">Philodendron</option></select
-      ><br />
-
-      <label for="quantity">Quantity:</label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        min="1"
-        max="10"
-        required
-      /><br />
-
-      <label for="payment">Payment Method:</label>
-      <select id="payment" name="payment">
-        <option value="credit-card">Credit Card</option>
-        <option value="paypal">PayPal</option>
-        <option value="apple-pay">Apple Pay</option>
-        <option value="google-pay">Google Pay</option></select
-      ><br />
-
-      <input type="submit" value="Place Order" />
-    </form>
+        <input type="button" value="Send Email" onclick="sendEmail()" />
+      </form>
+    </section>
 
     <footer class="flex-col">
       <h2 class="title">naturally🍃</h2>
@@ -98,7 +115,7 @@
       </div>
       <div class="line"></div>
       <div class="copyright">
-        Copyright © 2021. naturally. All right reserved.
+        Copyright © 2023. naturally. All right reserved.
       </div>
     </footer>
   </body>

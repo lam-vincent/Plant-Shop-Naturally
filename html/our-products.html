@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/our-products.css" />
 
+    <script src="../scripts/our-products.js"></script>
+    <script src="../scripts/send-email.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
     <script>
       const canvas = document.getElementById("our-products");
       const jsConfetti = new JSConfetti({ canvas });
     </script>
-    <script src="../scripts/our-products.js"></script>
   </head>
   <body class="wrapper">
     <header>
@@ -174,13 +175,21 @@
       <form>
         <h1 class="catchphrase">Finalize the Order🪴</h1>
 
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required /><br />
+
         <label for="delivery-date">Delivery Date:</label>
         <input
           type="date"
           id="delivery-date"
           name="delivery-date"
           value="2023-05-20"
+          required
         /><br />
+
         <fieldset>
           <legend>Free delivery between the following times:</legend>
           <input

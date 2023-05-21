@@ -9,35 +9,7 @@
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="stylesheet" href="../styles/contact-us.css" />
-    <script>
-      function sendEmail() {
-        var name = document.getElementById("name").value;
-        var subjectInBody = document.getElementById("subjectInBody").value;
-        var message = document.getElementById("message").value;
-
-        // The content of the mail is written here
-        var subject = "Client Support Ticket from " + name;
-        var body =
-          "From: " +
-          name +
-          "\nSubject: " +
-          subjectInBody +
-          "\n\nMessage:\n" +
-          message +
-          "\n\n";
-
-        // the mailto URL
-        var mailtoLink =
-          "mailto:naturally.client.supp@gmail.com" +
-          "?subject=" +
-          encodeURIComponent(subject) +
-          "&body=" +
-          encodeURIComponent(body);
-
-        // to open the mail client
-        window.location.href = mailtoLink;
-      }
-    </script>
+    <script src="../scripts/send-email.js"></script>
   </head>
   <body class="wrapper">
     <header>

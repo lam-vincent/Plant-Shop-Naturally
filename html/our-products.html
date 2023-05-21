@@ -12,13 +12,13 @@
 
     <script src="../scripts/our-products.js"></script>
     <script src="../scripts/send-email.js"></script>
+  </head>
+  <body class="wrapper">
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
     <script>
       const canvas = document.getElementById("our-products");
       const jsConfetti = new JSConfetti({ canvas });
     </script>
-  </head>
-  <body class="wrapper">
     <header>
       <a href="./index.html">
         <div class="title flex">
@@ -161,7 +161,13 @@
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" value="10" /><br />
 
-        <input type="button" value="ADD TO BASKET" onclick="addToBasket()" />
+        <input
+          type="button"
+          value="ADD TO BASKET"
+          onclick="addToBasket(); setTimeout(() => {
+          jsConfetti.addConfetti();
+        }, 500);"
+        />
       </form>
 
       <div class="basket">
@@ -209,7 +215,13 @@
           <label for="afternoon"> Afternoon between 2pm and 6pm</label>
         </fieldset>
 
-        <input type="button" value="FINISH THE ORDER" onclick="sendOrder()" />
+        <input
+          type="button"
+          value="FINISH THE ORDER"
+          onclick="sendOrder(); setTimeout(() => {
+          jsConfetti.addConfetti();
+        }, 500);"
+        />
       </form>
     </section>
 

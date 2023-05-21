@@ -45,7 +45,7 @@ function addToBasket() {
   calculateTotalPrice();
 
   // Store the basket in localStorage
-  storeBasketInLocalStorage();
+  storeBasketAndStockInLocalStorage();
 }
 
 // Function to calculate the total price
@@ -72,7 +72,7 @@ function calculateTotalPrice() {
   localStorage.setItem("totalPrice", totalPrice);
 }
 
-// Function to get the price of a plant
+// get the price of a plant
 function getPlantPrice(plantName) {
   // Define the prices for each plant (replace with actual prices if available)
   const plantPrices = {
@@ -91,6 +91,7 @@ function getPlantPrice(plantName) {
   return plantPrices[plantName] || 0; // Return 0 if the plant price is not found
 }
 
+// get the number of stock of a plant so that we know if we can add item to basket
 function getStock(plantName) {
   const table = document.querySelector("#our-products table");
   const rows = table.querySelectorAll("tbody tr");
@@ -99,6 +100,7 @@ function getStock(plantName) {
     const name = row.querySelector("td:first-child").textContent;
     if (name === plantName) {
       const stock = parseInt(row.querySelector("td:nth-child(3)").textContent);
+      console.log("stock: ", stock);
       return stock;
     }
   }
@@ -156,7 +158,6 @@ function storeBasketAndStockInLocalStorage() {
 
 // Function to retrieve the basket and stock from localStorage
 function retrieveBasketAndStockFromLocalStorage() {
-  console.log("hello");
   const basketItemsContainer = document.getElementById("basket-items");
 
   // Get the data from localStorage
@@ -166,24 +167,26 @@ function retrieveBasketAndStockFromLocalStorage() {
     const basket = data.basket;
     const stock = data.stock;
 
-    basket.forEach((item) => {
-      const basketItem = document.createElement("div");
-      basketItem.className = "basket-item";
-      basketItem.dataset.plantName = item.plantName;
-      basketItem.dataset.quantity = item.quantity;
+    if (basket.length > 0) {
+      basket.forEach((item) => {
+        const basketItem = document.createElement("div");
+        basketItem.className = "basket-item";
+        basketItem.dataset.plantName = item.plantName;
+        basketItem.dataset.quantity = item.quantity;
 
-      const itemName = document.createElement("span");
-      itemName.className = "basket-item-name";
-      itemName.textContent = item.plantName;
-      basketItem.appendChild(itemName);
+        const itemName = document.createElement("span");
+        itemName.className = "basket-item-name";
+        itemName.textContent = item.plantName;
+        basketItem.appendChild(itemName);
 
-      const itemQuantity = document.createElement("span");
-      itemQuantity.className = "basket-item-quantity";
-      itemQuantity.textContent = item.quantity;
-      basketItem.appendChild(itemQuantity);
+        const itemQuantity = document.createElement("span");
+        itemQuantity.className = "basket-item-quantity";
+        itemQuantity.textContent = item.quantity;
+        basketItem.appendChild(itemQuantity);
 
-      basketItemsContainer.appendChild(basketItem);
-    });
+        basketItemsContainer.appendChild(basketItem);
+      });
+    }
 
     // Update the stock information in the table
     const table = document.querySelector("#our-products table");
@@ -199,5 +202,8 @@ function retrieveBasketAndStockFromLocalStorage() {
   calculateTotalPrice();
 }
 
-// Retrieve the basket and stock from localStorage on page load
-retrieveBasketAndStockFromLocalStorage();
+// Call the function after the basket items container is present in the HTML
+document.addEventListener(
+  "DOMContentLoaded",
+  retrieveBasketAndStockFromLocalStorage
+);

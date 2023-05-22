@@ -521,4 +521,8 @@ footer .navbar {
   footer {
     margin: 1rem;
   }
+
+  .flex {
+    display: block;
+  }
 }

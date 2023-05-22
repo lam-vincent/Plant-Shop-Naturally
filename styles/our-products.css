@@ -16,6 +16,9 @@
 .basket {
   margin-top: 2rem;
 }
+.basket-header {
+  justify-content: space-between;
+}
 .basket-heading {
   font-size: 1.2rem;
   font-weight: bold;

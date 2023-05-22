@@ -171,7 +171,15 @@
       </form>
 
       <div class="basket">
-        <h2 class="basket-heading">Your Basket</h2>
+        <div class="basket-header flex">
+          <h2 class="basket-heading">Your Basket</h2>
+          <button
+            class="get-started-btn"
+            onclick="window.localStorage.clear(); window.location.reload();"
+          >
+            Clear All
+          </button>
+        </div>
         <div id="basket-items"></div>
         <div class="basket-total">
           Total Price: <span id="total-price">$0</span>

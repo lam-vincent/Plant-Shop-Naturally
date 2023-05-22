@@ -12,6 +12,7 @@
 
     <script src="../scripts/our-products.js"></script>
     <script src="../scripts/send-email.js"></script>
+    <script src="../scripts/script.js"></script>
   </head>
   <body class="wrapper">
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
@@ -144,9 +145,11 @@
       </table>
 
       <form>
-        <h1 class="catchphrase">Choose which plants you want to buy🪴</h1>
-        <label for="plant-name">Plant Name:</label>
-        <select id="plant-name" name="plant-name">
+        <h1 class="catchphrase animate-bottom">
+          Choose which plants you want to buy🪴
+        </h1>
+        <label for="plant-name" class="animate-bottom">Plant Name:</label>
+        <select id="plant-name" name="plant-name" class="animate-bottom">
           <option value="Succulent" selected>Succulent</option>
           <option value="Fiddle Leaf Fig">Fiddle Leaf Fig</option>
           <option value="Snake Plant">Snake Plant</option>
@@ -158,12 +161,19 @@
           <option value="Rubber Tree">Rubber Tree</option>
           <option value="English Ivy">English Ivy</option></select
         ><br />
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" value="10" /><br />
+        <label for="quantity" class="animate-bottom">Quantity:</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          value="10"
+          class="animate-bottom"
+        /><br />
 
         <input
           type="button"
           value="ADD TO BASKET"
+          class="animate-bottom"
           onclick="addToBasket(); setTimeout(() => {
           jsConfetti.addConfetti();
         }, 500);"
@@ -171,7 +181,7 @@
       </form>
 
       <div class="basket">
-        <div class="basket-header flex">
+        <div class="basket-header flex animate-bottom">
           <h2 class="basket-heading">Your Basket</h2>
           <button
             id="clear-all-btn"
@@ -181,30 +191,43 @@
           </button>
         </div>
         <div id="basket-items"></div>
-        <div class="basket-total">
+        <div class="basket-total animate-bottom">
           Total Price: <span id="total-price">$0</span>
         </div>
       </div>
 
       <form>
-        <h1 class="catchphrase">Finalize the Order🪴</h1>
+        <h1 class="catchphrase animate-bottom">Finalize the Order🪴</h1>
 
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required /><br />
+        <label for="name" class="animate-bottom">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="animate-bottom"
+          required
+        /><br />
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required /><br />
+        <label for="address" class="animate-bottom">Address:</label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          class="animate-bottom"
+          required
+        /><br />
 
-        <label for="delivery-date">Delivery Date:</label>
+        <label for="delivery-date" class="animate-bottom">Delivery Date:</label>
         <input
           type="date"
           id="delivery-date"
           name="delivery-date"
           value="2023-05-20"
+          class="animate-bottom"
           required
         /><br />
 
-        <fieldset>
+        <fieldset class="animate-bottom">
           <legend>Free delivery between the following times:</legend>
           <input
             type="radio"
@@ -226,6 +249,7 @@
         <input
           type="button"
           value="FINISH THE ORDER"
+          class="animate-bottom"
           onclick="sendOrder(); setTimeout(() => {
           jsConfetti.addConfetti();
         }, 500);"

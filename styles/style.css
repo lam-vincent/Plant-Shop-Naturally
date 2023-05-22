@@ -236,6 +236,10 @@ select {
   margin-left: 1rem;
 }
 
+.navbar ul li a:hover {
+  color: var(--orange);
+}
+
 .navbar {
   color: var(--gray);
 }

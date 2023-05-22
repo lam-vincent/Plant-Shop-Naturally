@@ -1,4 +1,4 @@
-// Function to handle adding a plant to the basket
+// function does four thing: add item to basket, update Total Price, update stock in table and store basket to the localStorage
 function addToBasket() {
   const plantNameSelect = document.getElementById("plant-name");
   const quantityInput = document.getElementById("quantity");
@@ -12,24 +12,30 @@ function addToBasket() {
 
   const basketItemsContainer = document.getElementById("basket-items");
 
+  // the type of existingItem is either an HTML element (if a match is found) or undefined.
   const existingItem = Array.from(basketItemsContainer.children).find(
     (item) => item.dataset.plantName === plantNameSelect.value
   );
 
+  // if true, update quantity, else create new basketItem
   if (existingItem) {
     const existingQuantity = parseInt(existingItem.dataset.quantity);
     const newQuantity = existingQuantity + quantity;
-    existingItem.dataset.quantity = newQuantity;
+    existingItem.dataset.quantity = newQuantity; // for the table
     existingItem.querySelector(".basket-item-quantity").textContent =
-      newQuantity;
+      newQuantity; // for the basketItems
   } else {
     const basketItem = document.createElement("div");
     basketItem.className = "basket-item";
+    // dataset is a property of an HTML element and an object that contains key-value pairs
+    // use .dataset instead of .item to retrieve data like this item.dataset.plantName
     basketItem.dataset.plantName = plantNameSelect.value;
     basketItem.dataset.quantity = quantity;
 
     const itemName = document.createElement("span");
     itemName.className = "basket-item-name";
+    // textContent is a property that represents the text content of an HTML element as a string.
+    // the string will be retrieve and update like this .textContent
     itemName.textContent = plantNameSelect.value;
     basketItem.appendChild(itemName);
 
@@ -44,11 +50,11 @@ function addToBasket() {
   updateStock(plantNameSelect.value, quantity);
   calculateTotalPrice();
 
-  // Store the basket in localStorage
+  // store the basket in localStorage
   storeBasketAndStockInLocalStorage();
 }
 
-// Function to calculate the total price
+// function to calculate the total price and store the totalPrice to the localStorage
 function calculateTotalPrice() {
   const basketItemsContainer = document.getElementById("basket-items");
   const basketItems = basketItemsContainer.children;
@@ -58,6 +64,8 @@ function calculateTotalPrice() {
   if (basketItems.length > 0) {
     Array.from(basketItems).forEach((item) => {
       const plantName = item.dataset.plantName;
+      // by default, the values of custom data attributes are treated as strings
+      // so we need to convert it to a integer
       const quantity = parseInt(item.dataset.quantity);
       const plantPrice = getPlantPrice(plantName);
       const itemPrice = quantity * plantPrice;
@@ -68,13 +76,11 @@ function calculateTotalPrice() {
   const totalPriceElement = document.getElementById("total-price");
   totalPriceElement.textContent = `$${totalPrice}`;
 
-  // Store the total price in localStorage
+  // store the total price in localStorage
   localStorage.setItem("totalPrice", totalPrice);
 }
 
-// get the price of a plant
 function getPlantPrice(plantName) {
-  // Define the prices for each plant (replace with actual prices if available)
   const plantPrices = {
     Succulent: 10,
     "Fiddle Leaf Fig": 50,
@@ -88,7 +94,7 @@ function getPlantPrice(plantName) {
     "English Ivy": 13,
   };
 
-  return plantPrices[plantName] || 0; // Return 0 if the plant price is not found
+  return plantPrices[plantName] || 0; // return 0 if the plant price is not found
 }
 
 // get the number of stock of a plant so that we know if we can add item to basket
@@ -100,12 +106,11 @@ function getStock(plantName) {
     const name = row.querySelector("td:first-child").textContent;
     if (name === plantName) {
       const stock = parseInt(row.querySelector("td:nth-child(3)").textContent);
-      console.log("stock: ", stock);
       return stock;
     }
   }
 
-  return 0; // If plant name not found, return 0 stock
+  return 0; // if plant name not found, return 0 stock
 }
 
 function updateStock(plantName, quantity) {
@@ -124,17 +129,19 @@ function updateStock(plantName, quantity) {
   }
 }
 
-// Function to store the basket and stock in localStorage
+// function to store the basket and stock in localStorage
 function storeBasketAndStockInLocalStorage() {
   const basketItemsContainer = document.getElementById("basket-items");
+  // select the div basket-item
   const basketItems = Array.from(basketItemsContainer.children);
 
+  // select the data from the "div"
   const basket = basketItems.map((item) => ({
     plantName: item.dataset.plantName,
     quantity: item.dataset.quantity,
   }));
 
-  // Get the stock information from the table
+  // get the stock information from the table
   const table = document.querySelector("#our-products table");
   const rows = table.querySelectorAll("tbody tr");
 
@@ -156,11 +163,12 @@ function storeBasketAndStockInLocalStorage() {
   localStorage.setItem("data", JSON.stringify(data));
 }
 
-// Function to retrieve the basket and stock from localStorage
+// function to retrieve the basket and stock from localStorage
+// and update totalPrice
 function retrieveBasketAndStockFromLocalStorage() {
   const basketItemsContainer = document.getElementById("basket-items");
 
-  // Get the data from localStorage
+  // get the data from localStorage
   const data = JSON.parse(localStorage.getItem("data"));
 
   if (data) {
@@ -171,11 +179,13 @@ function retrieveBasketAndStockFromLocalStorage() {
       basket.forEach((item) => {
         const basketItem = document.createElement("div");
         basketItem.className = "basket-item";
+        // use .dataset instead of .item to retrieve data like this item.dataset.plantName
         basketItem.dataset.plantName = item.plantName;
         basketItem.dataset.quantity = item.quantity;
 
         const itemName = document.createElement("span");
         itemName.className = "basket-item-name";
+        // the string will be retrieve and update like this .textContent
         itemName.textContent = item.plantName;
         basketItem.appendChild(itemName);
 
@@ -188,7 +198,7 @@ function retrieveBasketAndStockFromLocalStorage() {
       });
     }
 
-    // Update the stock information in the table
+    // update the stock information in the table
     const table = document.querySelector("#our-products table");
     const rows = table.querySelectorAll("tbody tr");
 
@@ -202,7 +212,7 @@ function retrieveBasketAndStockFromLocalStorage() {
   calculateTotalPrice();
 }
 
-// Call the function after the basket items container is present in the HTML
+// call the function after the basket items container is present in the HTML
 document.addEventListener(
   "DOMContentLoaded",
   retrieveBasketAndStockFromLocalStorage

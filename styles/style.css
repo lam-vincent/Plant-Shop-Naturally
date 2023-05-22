@@ -128,7 +128,8 @@ textarea {
   border-radius: 4px;
 }
 
-input[type="button"] {
+input[type="button"],
+#clear-all-btn {
   width: 100%;
   border-radius: 10rem;
   padding: 1rem;
@@ -141,7 +142,16 @@ input[type="button"] {
   margin-top: 2rem;
 }
 
-input[type="button"]:hover {
+#clear-all-btn {
+  width: auto;
+  margin-top: 0;
+  padding: 0.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+input[type="button"]:hover,
+#clear-all-btn:hover {
   background-color: var(--green);
   color: white;
 }

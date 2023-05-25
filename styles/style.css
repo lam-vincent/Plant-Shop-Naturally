@@ -70,8 +70,7 @@ table {
   margin: 2rem auto;
   padding: 1rem;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3),
-    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   border-collapse: collapse;
   border: 1px solid #ddd;
   width: 80%;
@@ -257,6 +256,16 @@ select {
   height: 45rem;
   width: auto;
   border-radius: 2rem;
+}
+
+.card-image-2 {
+  display: none;
+  visibility: hidden;
+  height: auto;
+  width: auto;
+  height: 45rem;
+  border-radius: 2rem;
+  margin-top: 2rem;
 }
 
 .content-1 {
@@ -467,9 +476,8 @@ select {
 /*card*/
 .card {
   /*cardimage2.jpeg*/
-  /* background-image: url("https://images.pexels.com/photos/6231990/pexels-photo-6231990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); */
   background: no-repeat center/100% url("../images/cardImage2.jpeg");
-  height: 40rem;
+  height: auto;
   border-radius: 2rem;
   color: white;
   margin-top: 8rem;
@@ -479,7 +487,9 @@ select {
   /*make the background darker*/
   backdrop-filter: brightness(0.5);
   border-radius: 2rem;
-  height: 40rem;
+  height: auto;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   width: 100%;
 }
 
@@ -527,6 +537,102 @@ footer .navbar {
   }
 
   .flex {
-    display: block;
+    display: inherit;
+  }
+
+  .title {
+    display: flex;
+  }
+
+  .animate-bottom {
+    position: unset;
+    opacity: 1;
+    transition: none;
+    transform: none;
+  }
+
+  .animate-bottom.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .split-section-1 {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-1 {
+    margin-left: 0;
+  }
+
+  .content-2 {
+    margin-right: 0;
+  }
+
+  .card-image {
+    display: none;
+    visibility: hidden;
+  }
+
+  .card-image-2 {
+    display: inherit;
+    visibility: visible;
+  }
+
+  .split-section-2 {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .display-case {
+    height: auto;
+    width: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .display-case-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .display-case-card {
+    transform: none;
+  }
+
+  .gallery {
+    margin: 1rem;
+    margin-top: 4rem;
+  }
+
+  .top-section-gallery {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+  }
+
+  .gallery-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 1rem;
+    margin-top: 4rem;
+  }
+
+  .card .upper-layer .card-title {
+    font-size: 2rem;
+  }
+
+  .card .upper-layer .card-description {
+    font-size: 1rem;
+  }
+
+  .line {
+    width: 0;
   }
 }

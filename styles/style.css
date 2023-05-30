@@ -642,4 +642,22 @@ footer .navbar {
     padding-left: 0;
     padding-right: 0;
   }
+
+  caption {
+    font-size: 1.5rem;
+  }
+
+  .display-case h1,
+  span {
+    font-size: 2rem;
+  }
+
+  .card .upper-layer .card-title {
+    font-size: 1.25rem;
+  }
+
+  .card .upper-layer .card-description {
+    font-size: 1rem;
+    text-align: center;
+  }
 }

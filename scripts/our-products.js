@@ -27,8 +27,8 @@ function addToBasket() {
   } else {
     const basketItem = document.createElement("div");
     basketItem.className = "basket-item";
-    // dataset is a property of an HTML element and an object that contains key-value pairs
-    // use .dataset instead of .item to retrieve data like this item.dataset.plantName
+    // dataset is an object that contains key-value pairs
+    // we use .dataset instead of .item to retrieve data like this item.dataset.plantName
     basketItem.dataset.plantName = plantNameSelect.value;
     basketItem.dataset.quantity = quantity;
 
@@ -132,10 +132,10 @@ function updateStock(plantName, quantity) {
 // function to store the basket and stock in localStorage
 function storeBasketAndStockInLocalStorage() {
   const basketItemsContainer = document.getElementById("basket-items");
-  // select the div basket-item
+  // put basket items divs in an array
   const basketItems = Array.from(basketItemsContainer.children);
 
-  // select the data from the "div"
+  // create the object basket
   const basket = basketItems.map((item) => ({
     plantName: item.dataset.plantName,
     quantity: item.dataset.quantity,
@@ -179,7 +179,7 @@ function retrieveBasketAndStockFromLocalStorage() {
       basket.forEach((item) => {
         const basketItem = document.createElement("div");
         basketItem.className = "basket-item";
-        // use .dataset instead of .item to retrieve data like this item.dataset.plantName
+        // we use .dataset instead of .item to retrieve data like this item.dataset.plantName
         basketItem.dataset.plantName = item.plantName;
         basketItem.dataset.quantity = item.quantity;
 
@@ -212,7 +212,7 @@ function retrieveBasketAndStockFromLocalStorage() {
   calculateTotalPrice();
 }
 
-// call the function after the basket items container is present in the HTML
+// call the function after DOM loaded
 document.addEventListener(
   "DOMContentLoaded",
   retrieveBasketAndStockFromLocalStorage

@@ -258,10 +258,9 @@ select {
   border-radius: 2rem;
 }
 
-.card-image-2 {
+.card-image-mobile {
   display: none;
   visibility: hidden;
-  height: auto;
   width: auto;
   height: 45rem;
   border-radius: 2rem;
@@ -575,7 +574,7 @@ footer .navbar {
     visibility: hidden;
   }
 
-  .card-image-2 {
+  .card-image-mobile {
     display: inherit;
     visibility: visible;
   }
@@ -659,5 +658,33 @@ footer .navbar {
   .card .upper-layer .card-description {
     font-size: 1rem;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .catchphrase {
+    font-size: 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .description {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .card-image-mobile {
+    width: auto;
+    height: 30rem;
+  }
+
+  .small-gallery-image {
+    width: 6rem;
+    height: 6rem;
+    margin: 0.5rem;
+  }
+
+  .card .upper-layer .card-title {
+    font-size: 1rem;
   }
 }

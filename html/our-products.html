@@ -15,6 +15,8 @@
     <script src="../scripts/script.js"></script>
   </head>
   <body class="wrapper">
+    <!-- I know I shouln't put script in html file and in the body but it doesn't work if I don't. 
+      I put the addConfetti() to activate the animation in the our-products file though. -->
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.9.0/dist/js-confetti.browser.js"></script>
     <script>
       const canvas = document.getElementById("our-products");
@@ -47,6 +49,11 @@
 
     <section id="our-products">
       <table>
+        <!-- The caption is in blue because the water emoji is in blue. 
+          I can't use orange or green because that wouldn't look good. 
+          We tried to respect simple design rules like a palette of three colors max in the viewport/screen
+          (black, blue and orange in this exemple and other times, black, green and orange) 
+          so that it looks pleasing to the eye. -->
         <caption>
           Welcome to our Plant Store
         </caption>
@@ -174,9 +181,7 @@
           type="button"
           value="ADD TO BASKET"
           class="animate-bottom"
-          onclick="addToBasket(); setTimeout(() => {
-          jsConfetti.addConfetti();
-        }, 500);"
+          onclick="addToBasket()"
         />
       </form>
 
@@ -250,9 +255,7 @@
           type="button"
           value="FINISH THE ORDER"
           class="animate-bottom"
-          onclick="sendOrder(); setTimeout(() => {
-          jsConfetti.addConfetti();
-        }, 500);"
+          onclick="sendOrder()"
         />
       </form>
     </section>

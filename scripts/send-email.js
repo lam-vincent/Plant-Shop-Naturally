@@ -27,6 +27,11 @@ function sendEmail() {
 }
 
 function sendOrder() {
+  // Add the confetti animation
+  setTimeout(() => {
+    jsConfetti.addConfetti();
+  }, 500);
+
   // get the name
   const nameElement = document.getElementById("name");
   const name = nameElement.value;

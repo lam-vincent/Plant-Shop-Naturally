@@ -50,6 +50,11 @@ function addToBasket() {
   updateStock(plantNameSelect.value, quantity);
   calculateTotalPrice();
 
+  // Add the confetti animation
+  setTimeout(() => {
+    jsConfetti.addConfetti();
+  }, 500);
+
   // store the basket in localStorage
   storeBasketAndStockInLocalStorage();
 }

@@ -2,6 +2,8 @@
 
 The website has been deployed with Github Pages through the following URL: https://lam-vincent.github.io/Plant-Shop-Naturally/html/index.html
 
+You can also check out the [Report Web Dev Project - Plant Shop Naturally](./Report%20Web%20Dev%20Project%20-%20Plant%20Shop%20Naturally.pdf) for more details.
+
 <h2>Landing page is based on this template:</h2>
 
 <p align="center">
